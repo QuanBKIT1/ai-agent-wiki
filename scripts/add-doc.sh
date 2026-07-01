@@ -95,8 +95,8 @@ else
 fi
 
 # ---- 4. commit -----------------------------------------------------------
-step "4/5 Commit generated pages"
-git add wiki/ log/ CLAUDE.md raw/
+step "4/5 Commit generated pages (raw/ is gitignored — kept local only)"
+git add wiki/ log/ CLAUDE.md
 if git diff --cached --quiet; then
   die "Ingest produced no changes — nothing to commit. Check the document and try again."
 fi

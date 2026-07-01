@@ -4,3 +4,10 @@ __pycache__/
 .DS_Store
 node_modules/
 .obsidian/
+
+# Raw source docs are kept LOCAL only (copyright: publish compiled wiki, not full-text originals).
+# If you want to track pointer files for large binaries, add: !raw/refs/
+raw/
+
+# Local crawl queue for /loop (see .claude/commands/crawl-next.md)
+scripts/crawl-queue.txt

@@ -37,6 +37,18 @@ Sau khi chạy, GitHub Actions tự build và deploy — site cập nhật sau ~
 3. Review pages trong `wiki/` (hoặc `mkdocs serve`)
 4. `git add -A && git commit && git push`
 
+## Crawl hàng loạt từ danh sách URL (`/loop`)
+
+Crawl có giám sát nhiều bài từ URL, mỗi lần một bài:
+
+1. Mở `scripts/crawl-queue.txt`, dán các URL (mỗi dòng: `<url> [category]`).
+2. Trong Claude Code, chạy: `/loop /crawl-next`
+3. Mỗi vòng lặp xử lý **một** URL: fetch → lưu `raw/` → ingest → lint → commit → push. Khi hết queue nó báo `QUEUE EMPTY` → nhấn Esc để dừng.
+
+> `/loop` chỉ chạy khi phiên Claude Code đang mở (đóng máy là dừng) — phù hợp crawl có giám sát. Muốn chạy định kỳ không cần máy bật, dùng GitHub Actions cron hoặc `/schedule`.
+
+**Lưu ý bản quyền:** thư mục `raw/` (full-text bài gốc) được **gitignore** — chỉ giữ local. Repo public chỉ chứa wiki đã compile (tóm tắt/biên dịch).
+
 ## Local preview
 
 ```bash
