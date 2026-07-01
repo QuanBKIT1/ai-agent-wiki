@@ -5,7 +5,8 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
-tags: [ai-agents, production, harness, observability, tracing, opentelemetry]
+  - "[[raw/ai-agents-production/agent-observability-guide-braintrust]]"
+tags: [ai-agents, production, harness, observability, tracing, opentelemetry, spans, evaluation]
 ---
 
 # Agent Observability
@@ -51,7 +52,25 @@ Execution trace là công cụ bộc lộ [[silent-tool-call-failures|silent too
 
 Trong ngành regulated, execution trace không chỉ để debug mà còn là **bằng chứng compliance**. [[stripe-financial-compliance-agents|Stripe]] log toàn bộ lịch sử thực thi agent — mọi action, decision và rationale — để đứng vững trước examination của cơ quan quản lý. Chính cấu trúc [[react-pattern|ReAct]] (`tool invocation → observation → reasoning`) tạo ra trace tự nhiên cho mục đích này.
 
+## Bốn loại span và vòng trace → eval (thực hành)
+
+Bổ sung từ guide [[agent-observability-guide-braintrust|Braintrust 2026]]: một schema trace tối thiểu cho agent gồm **4 loại span** — mỗi loại bắt một failure mode riêng:
+
+| Span | Ghi gì | Bắt failure gì |
+|---|---|---|
+| **Tool-Call** | name, arguments, output, duration, retry, error | hallucinated arguments, silent retry loop ([[silent-tool-call-failures]]) |
+| **Reasoning** | plan / action / observation / next | plan drift, chọn sai nhánh |
+| **State Transition** | working memory trước-sau + handoff payload | context loss ([[context-window-management]]) |
+| **Memory Operation** | query, entries, relevance score, freshness | stale read, memory leakage |
+
+Điểm mấu chốt về multi-agent: xem **mỗi agent boundary như một RPC** — ghi handoff payload thành span trên parent, nest sub-agent dưới đó, cho cùng trace ID chảy qua; nếu không, handoff failure hoàn toàn vô hình.
+
+Và quan trọng nhất, trace không chỉ để debug: trace **fail online scoring → chuyển thành eval case**, rồi CI gate (GitHub Action) block merge nếu quality tụt — đây là hiện thực hoá [[evaluation-pipeline|continuous evaluation]]. Landscape platform: [[braintrust|Braintrust]] (trace-to-eval), Galileo AI (guardrails), Arize Phoenix (OSS, [[opentelemetry|OTEL]]-first), Datadog (APM).
+
 ## Xem thêm
+- [[agent-observability-guide-braintrust]] · 📖 [[articles/agent-observability-guide-braintrust]] — 4 loại span, APM vs agent-observability, code LangGraph+Mastra
+- [[braintrust]] — platform trace-to-eval
+- [[evaluation-pipeline]] — trace fail nuôi eval case
 - [[opentelemetry]] — chuẩn tracing được khuyến nghị
 - [[stripe-financial-compliance-agents]] · [[agent-service-architecture]] — audit trail agent cho financial compliance
 - [[agent-infrastructure-stack]] — observability là một trong 5 layer của hạ tầng agent (logging / metrics / distributed tracing)

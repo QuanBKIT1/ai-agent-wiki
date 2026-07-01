@@ -16,6 +16,12 @@ Mỗi bài đều liên kết hai chiều: từ đây có `📝 Bản tóm tắt
 - [[articles/stripe-financial-compliance-agents|Production-Grade AI Agents cho Financial Compliance — Case Study Stripe]]
   — Nguồn: AWS Machine Learning Blog (AWS + Stripe) | 26/06/2026 | ~12 phút
 
+- [[articles/agent-observability-guide-braintrust|Agent Observability: Hướng Dẫn Đầy Đủ Cho 2026]]
+  — Nguồn: Braintrust | 21/06/2026 | ~18 phút *(backfill)*
+
+- [[articles/crewai-production-lessons|CrewAI Trên Production 2026: Những Bài Học Thực Chiến]]
+  — Nguồn: AgileSoftLabs (Emachalan) | 15/06/2026 | ~16 phút *(backfill)*
+
 - [[articles/lessons-learned-harness-engineering|Bài Học Từ Việc Triển Khai AI Agent Trên Production]]
   — Nguồn: Harness Engineering Blog (Dr. Sarah Chen) | 10/03/2026 | ~12 phút
 

@@ -10,6 +10,8 @@
 Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của các bài crawl (khác với tóm tắt ngắn ở Summaries). Xem tất cả: [[articles/index|📖 Bài viết (Tiếng Việt)]].
 
 - [[articles/stripe-financial-compliance-agents]] — Case study Stripe (AWS, 26/06/2026)
+- [[articles/agent-observability-guide-braintrust]] — Agent observability guide (Braintrust, 21/06/2026, *backfill*)
+- [[articles/crewai-production-lessons]] — CrewAI production lessons (AgileSoftLabs, 15/06/2026, *backfill*)
 - [[articles/lessons-learned-harness-engineering]] — Bài học harness engineering (10/03/2026)
 - [[articles/deploying-ai-agents-mlm]] — Kiến trúc & hạ tầng deploy (03/03/2026)
 - [[articles/ai-agents-production-47billion]] — Tổng quan frameworks & protocols (24/02/2026)
@@ -74,16 +76,20 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 
 ### Tools & Standards
 - [[entities/opentelemetry]] — chuẩn observability cho span-level agent tracing
+- [[entities/braintrust]] — platform agent observability + evaluation (trace → eval → CI gate)
 
 ## Summaries (chronological)
 - 2026-02-24 — [[summaries/ai-agents-production-47billion]] — báo cáo 47Billion: frameworks, protocols, production lessons
 - 2026-03-03 — [[summaries/deploying-ai-agents-mlm]] — MachineLearningMastery: execution models, 5-layer infra stack, deployment topologies, roadmap
 - 2026-03-10 — [[summaries/lessons-learned-harness-engineering]] — Harness Engineering: failure ở tầng harness, verify/cost/observability/eval
+- 2026-06-15 — [[summaries/crewai-production-lessons]] — CrewAI production: narrow agents, max_iter, $/run, sequential>hierarchical, Pydantic *(backfill)*
+- 2026-06-21 — [[summaries/agent-observability-guide-braintrust]] — Braintrust: 4 loại span, APM vs agent-obs, trace→eval→CI gate *(backfill)*
 - 2026-06-26 — [[summaries/stripe-financial-compliance-agents]] — Stripe/AWS: Agent Service microservice, LLM Proxy, DAG, prompt caching 60%, HITL compliance
 
 ## Digests
 - [[digests/index|Weekly Crawl Digests]] — tổng hợp crawl hằng tuần các bài AI-agent-in-production mới nhất
     - [[digests/2026-07-01-digest|2026-07-01]] — 1 bài mới: AWS/Stripe production AI agents cho financial compliance
+    - [[digests/2026-07-01-backfill-digest|2026-07-01 (backfill)]] — 2 bài backfill: Braintrust observability + CrewAI production lessons
 
 ## Open Questions
 

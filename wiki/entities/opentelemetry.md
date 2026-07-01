@@ -16,4 +16,5 @@ Trong [[agent-observability]], mỗi agent step được biểu diễn là một
 
 ## Xem thêm
 - [[agent-observability]] — vì sao agent cần span-level trace
+- [[braintrust]] — platform observability; Arize Phoenix (đối thủ) là OpenTelemetry-first
 - [[harness-engineering]] · [[harness-checklist]]

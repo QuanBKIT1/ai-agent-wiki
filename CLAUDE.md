@@ -52,6 +52,8 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 - MachineLearningMastery — Deploying AI Agents to Production (2026-03-03) → [[summaries/deploying-ai-agents-mlm]]
 - Harness Engineering — Lessons Learned Deploying AI Agents (2026-03-10) → [[summaries/lessons-learned-harness-engineering]]
 - AWS/Stripe — Production-Grade AI Agents for Financial Compliance (2026-06-26) → [[summaries/stripe-financial-compliance-agents]]
+- Braintrust — Agent Observability: The Complete Guide for 2026 (2026-06-21, *backfill*) → [[summaries/agent-observability-guide-braintrust]]
+- AgileSoftLabs — CrewAI in Production 2026: Real Lessons (2026-06-15, *backfill*) → [[summaries/crewai-production-lessons]]
 
 ### Concepts
 - [[concepts/ai-agent-types]]
@@ -79,13 +81,15 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 - [[entities/autogen]], [[entities/crewai]], [[entities/llamaindex]], [[entities/openai-agents-sdk]], [[entities/langgraph]]
 - [[entities/47billion]], [[entities/anthropic]], [[entities/google]], [[entities/copilotkit]]
 - [[entities/harness-engineering-blog]], [[entities/sarah-chen]], [[entities/opentelemetry]]
-- [[entities/machinelearningmastery]], [[entities/stripe]]
+- [[entities/machinelearningmastery]], [[entities/stripe]], [[entities/braintrust]]
 
 ### Summaries
 - [[summaries/ai-agents-production-47billion]]
 - [[summaries/deploying-ai-agents-mlm]]
 - [[summaries/lessons-learned-harness-engineering]]
 - [[summaries/stripe-financial-compliance-agents]]
+- [[summaries/agent-observability-guide-braintrust]] (backfill)
+- [[summaries/crewai-production-lessons]] (backfill)
 
 ## Open research questions
 
