@@ -79,8 +79,13 @@ class CostEnvelope:
 
 Cost envelope **per-task, enforce tại orchestration layer**, ngăn chi phí runaway bất kể chuyện gì xảy ra ở dưới stack. Set soft limit ở **70-80%** hard limit để hệ thống có thời gian alert và task hoàn thành bình thường nếu sát budget. Cost attribution per step (từ [[agent-observability]]) cho biết phần nào của workflow đang đốt budget.
 
+## Prompt caching: đòn giảm chi phí input token (production)
+
+Bổ sung từ case study [[stripe-financial-compliance-agents|Stripe]]: trong vòng [[react-pattern|ReAct]] nhiều turn, phần lớn prompt (system prompt, lịch sử hội thoại) lặp lại giữa các turn. **Prompt caching** tái dùng prefix chung, chỉ tính tiền cho observation/thought **mới append** ở mỗi turn — Stripe giảm được **60% chi phí**. Kết hợp với **cost instrumentation per invocation** (track token mỗi lần gọi) để forecast chi tiêu và phát hiện điểm tối ưu trước khi vượt ngân sách. Đây là bổ sung mang tính "đòn bẩy chi phí" cho phần hard-limit ở trên: hard limit chặn runaway, prompt caching hạ chi phí baseline.
+
 ## Xem thêm
 - [[autonomy-spectrum]] — mức autonomy càng cao chi phí càng lớn
+- [[agent-service-architecture]] · [[stripe-financial-compliance-agents]] — LLM Proxy + prompt caching giảm 60% chi phí
 - [[production-reliability]] — cost limit như một guardrail
 - [[agent-frameworks-comparison]] — hiệu quả chi phí theo framework
 - [[harness-engineering]] · [[harness-checklist]] — cost envelope là ưu tiên #2 trước go-live

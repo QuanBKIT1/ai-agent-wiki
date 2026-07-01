@@ -56,8 +56,11 @@ Phản ứng với **event** chứ không phải request trực tiếp. User sub
 
 Chọn model nào phụ thuộc yêu cầu về scaling, state, và budget — xem [[deployment-decision-framework]].
 
+Case study [[stripe-financial-compliance-agents|Stripe]] đi đúng lộ trình này: agent service khởi đầu là **stateless synchronous endpoint**, rồi tiến hóa thành hệ thống **stateful multi-turn** hỗ trợ >100 agent — minh họa việc execution model dịch chuyển theo nhu cầu thực tế (xem [[agent-service-architecture]]).
+
 ## Xem thêm
 - [[agent-infrastructure-stack]] — 5 layer hạ tầng support các model này
 - [[deployment-topologies]] — cách tổ chức agent ở scale
 - [[deployment-decision-framework]] — map yêu cầu vào execution model
 - [[agent-deployment-roadmap]] — lộ trình đưa agent vào production
+- [[agent-service-architecture]] — agent service như microservice riêng (case study Stripe)

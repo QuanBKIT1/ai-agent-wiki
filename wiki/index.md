@@ -32,6 +32,7 @@
 - [[concepts/agent-infrastructure-stack]] — 5 layer: Compute → Storage → Communication → Observability → Security
 - [[concepts/deployment-topologies]] — 4 topology: Single, Multi-Agent, Pools, Hierarchical + Human Oversight
 - [[concepts/deployment-decision-framework]] — map yêu cầu (scaling/state/complexity/budget/team) vào pattern kiến trúc
+- [[concepts/agent-service-architecture]] — Agent Service microservice riêng + LLM Proxy + DAG decomposition (case study Stripe)
 
 ### Harness Engineering (Production Lessons)
 - [[concepts/harness-engineering]] — failure ở tầng harness, không phải model; prompt có lợi ích giảm dần
@@ -57,6 +58,7 @@
 - [[entities/google]] — phát hành A2A
 - [[entities/copilotkit]] — phát hành AG-UI
 - [[entities/machinelearningmastery]] — blog giáo dục ML/AI; publisher bài Deploying AI Agents (2026)
+- [[entities/stripe]] — fintech; case study production AI agent cho financial compliance (2026)
 
 ### People
 - [[entities/sarah-chen]] — tác giả bài Harness Engineering lessons learned
@@ -68,6 +70,11 @@
 - 2026-02-24 — [[summaries/ai-agents-production-47billion]] — báo cáo 47Billion: frameworks, protocols, production lessons
 - 2026-03-03 — [[summaries/deploying-ai-agents-mlm]] — MachineLearningMastery: execution models, 5-layer infra stack, deployment topologies, roadmap
 - 2026-03-10 — [[summaries/lessons-learned-harness-engineering]] — Harness Engineering: failure ở tầng harness, verify/cost/observability/eval
+- 2026-06-26 — [[summaries/stripe-financial-compliance-agents]] — Stripe/AWS: Agent Service microservice, LLM Proxy, DAG, prompt caching 60%, HITL compliance
+
+## Digests
+- [[digests/index|Weekly Crawl Digests]] — tổng hợp crawl hằng tuần các bài AI-agent-in-production mới nhất
+    - [[digests/2026-07-01-digest|2026-07-01]] — 1 bài mới: AWS/Stripe production AI agents cho financial compliance
 
 ## Open Questions
 

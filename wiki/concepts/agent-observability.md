@@ -47,8 +47,13 @@ flowchart TD
 
 Execution trace là công cụ bộc lộ [[silent-tool-call-failures|silent tool call failures]] và [[context-window-management|context overflow]] — những failure vốn vô hình. Không có step-level trace thì debug production failure gần như bất khả thi (xem [[harness-checklist|ưu tiên #3]]).
 
+## Audit trail cho ngành regulated (production)
+
+Trong ngành regulated, execution trace không chỉ để debug mà còn là **bằng chứng compliance**. [[stripe-financial-compliance-agents|Stripe]] log toàn bộ lịch sử thực thi agent — mọi action, decision và rationale — để đứng vững trước examination của cơ quan quản lý. Chính cấu trúc [[react-pattern|ReAct]] (`tool invocation → observation → reasoning`) tạo ra trace tự nhiên cho mục đích này.
+
 ## Xem thêm
 - [[opentelemetry]] — chuẩn tracing được khuyến nghị
+- [[stripe-financial-compliance-agents]] · [[agent-service-architecture]] — audit trail agent cho financial compliance
 - [[agent-infrastructure-stack]] — observability là một trong 5 layer của hạ tầng agent (logging / metrics / distributed tracing)
 - [[harness-engineering]] · [[silent-tool-call-failures]] · [[agent-cost-management]]
 - [[production-reliability]] — audit trail cho compliance

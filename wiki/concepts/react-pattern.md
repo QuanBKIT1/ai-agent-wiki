@@ -47,6 +47,16 @@ Bài học then chốt từ production:
 
 ReAct là cơ chế nền tảng cho [[autonomy-spectrum|Level 3 (Tool-Using Agents)]] trở lên. Ở các level thấp hơn (prompt chaining, workflow có branching), agent chưa tự quyết định gọi tool nào nên chưa cần đến vòng lặp ReAct đầy đủ.
 
+## ReAct như một closed-loop control system (production)
+
+Case study [[stripe-financial-compliance-agents|Stripe]] mô tả ReAct dưới góc nhìn control theory: observation được **inject bắt buộc** trở lại context sau mỗi action, agent không được sang action kế tiếp trước khi xử lý feedback (observation) của action trước. Lợi ích ở production regulated:
+
+- **Grounds reasoning in actual data** — chống bịa kết quả.
+- **Prevents reasoning drift** — observation là checkpoint neo reasoning vào output thực tế.
+- **Auditability** — tạo trace tường minh `tool invocation → observation → reasoning` để log cho compliance (xem [[agent-observability]]).
+
 ## Xem thêm
 - [[autonomy-spectrum]] — ReAct xuất hiện từ Level 3
 - [[agent-frameworks-comparison]] — cách mỗi framework triển khai ReAct
+- [[agent-service-architecture]] — vòng ReAct chạy trong Agent Service microservice riêng
+- [[stripe-financial-compliance-agents]] — ReAct như closed-loop control ở scale production

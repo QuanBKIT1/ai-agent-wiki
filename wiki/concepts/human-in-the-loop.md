@@ -50,6 +50,11 @@ flowchart LR
 
 Cùng với [[production-reliability|guardrails khác]] (output validation, cost limit, action constraint), HITL là infrastructure thiết yếu chứ không phải nice-to-have.
 
+## Ví dụ production: Stripe compliance review
+
+[[stripe-financial-compliance-agents|Stripe]] là minh chứng HITL bắt buộc trong ngành regulated: agent **không tự quyết định** — output chỉ là thông tin bổ trợ, reviewer con người vẫn phải trả lời từng sub-task của review. Pattern này thuộc nhóm **Approval Gates + Review & Edit**, và vẫn tạo ROI rõ rệt (giảm 26% median handling time, >96% helpfulness) đồng thời đạt chuẩn audit cho examination. Bài học: HITL + rail hẹp cho agent không làm mất giá trị, mà là điều kiện để triển khai được ở ngành finance.
+
 ## Xem thêm
 - [[production-reliability]] — reliability playbook đầy đủ
 - [[ag-ui]] — protocol hỗ trợ HITL approval ở tầng UI
+- [[stripe-financial-compliance-agents]] · [[agent-service-architecture]] — HITL trong kiến trúc production thực tế
