@@ -48,16 +48,25 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 
 ## Current articles
 
-*None yet — update this list after every compile.*
+- 47Billion — AI Agents in Production (2026-02-24) → [[summaries/ai-agents-production-47billion]]
 
 ### Concepts
-*(none)*
+- [[concepts/ai-agent-types]]
+- [[concepts/react-pattern]]
+- [[concepts/autonomy-spectrum]]
+- [[concepts/agent-frameworks-comparison]]
+- [[concepts/human-in-the-loop]]
+- [[concepts/production-reliability]]
+- [[concepts/agent-cost-management]]
+- [[concepts/agent-deployment-roadmap]]
+- [[concepts/agent-protocols/index]] (folder-split: mcp, a2a, ag-ui)
 
 ### Entities
-*(none)*
+- [[entities/autogen]], [[entities/crewai]], [[entities/llamaindex]], [[entities/openai-agents-sdk]], [[entities/langgraph]]
+- [[entities/47billion]], [[entities/anthropic]], [[entities/google]], [[entities/copilotkit]]
 
 ### Summaries
-*(none)*
+- [[summaries/ai-agents-production-47billion]]
 
 ## Open research questions
 
