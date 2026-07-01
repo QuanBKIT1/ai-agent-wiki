@@ -21,6 +21,10 @@ theme:
     - navigation.expand
     - search.highlight
     - content.code.copy
+plugins:
+  - search
+  - ezlinks:
+      wikilinks: true
 markdown_extensions:
   - pymdownx.arithmatex:
       generic: true

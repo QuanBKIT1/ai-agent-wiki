@@ -24,8 +24,8 @@ cd ~/workspace/llm-wiki-skill/web
 npm start -- --wiki ~/workspace/ai-agent-wiki --port 4175
 
 # MkDocs
-pip install mkdocs-material pymdown-extensions
 cd ~/workspace/ai-agent-wiki
+pip install -r requirements.txt
 mkdocs serve
 ```
 
