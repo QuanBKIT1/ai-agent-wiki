@@ -9,5 +9,5 @@ node_modules/
 # If you want to track pointer files for large binaries, add: !raw/refs/
 raw/
 
-# Local crawl queue for /loop (see .claude/commands/crawl-next.md)
+# Local crawl queue for /loop (see .claude/skills/crawl-next/SKILL.md)
 scripts/crawl-queue.txt
