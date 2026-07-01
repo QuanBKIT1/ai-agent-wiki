@@ -10,7 +10,7 @@ tags: [ai-agents, deployment, roadmap, production, adoption]
 
 # Agent Deployment Roadmap
 
-Lộ trình 3 phase để áp dụng AI agent vào production, đúc kết từ trải nghiệm thực tế. Nguyên tắc xuyên suốt: **bắt đầu đơn giản, chỉ thêm phức tạp khi cần**.
+Lộ trình 3 phase để áp dụng AI agent vào production, đúc kết từ trải nghiệm thực tế. Nguyên tắc xuyên suốt: **bắt đầu đơn giản, chỉ thêm phức tạp khi cần**. Góc nhìn *adoption* này đi kèm với các quyết định *kiến trúc/hạ tầng*: chọn [[agent-execution-models|execution model]], build [[agent-infrastructure-stack|infrastructure stack]], và tổ chức agent theo [[deployment-topologies|topology]] phù hợp.
 
 ```mermaid
 flowchart LR
@@ -58,3 +58,5 @@ flowchart LR
 
 ## Xem thêm
 - [[agent-frameworks-comparison]] · [[production-reliability]] · [[agent-protocols/index|Agent Protocol Stack]]
+- [[deployment-topologies]] · [[agent-infrastructure-stack]] · [[agent-execution-models]] — góc nhìn kiến trúc/hạ tầng bổ sung
+- [[deployment-decision-framework]] — map yêu cầu vào pattern kiến trúc

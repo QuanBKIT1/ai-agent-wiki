@@ -55,7 +55,7 @@ Với team chạy microservices (ví dụ 33 FastAPI service trên AWS EKS), age
 - Agent xử lý reasoning và sequencing; service xử lý execution.
 - Test suite, monitoring, deployment pipeline hiện có vẫn nguyên vẹn.
 
-Guardrails ([[human-in-the-loop|HITL]], output validation, action constraint, cost limit) là **infrastructure thiết yếu**, không phải nice-to-have.
+Guardrails ([[human-in-the-loop|HITL]], output validation, action constraint, cost limit) là **infrastructure thiết yếu**, không phải nice-to-have. Về mặt kiến trúc, chúng nằm ở **Security layer** và **Observability layer** của [[agent-infrastructure-stack]] (vault cho secret, input validation, output filtering, audit trail).
 
 ## Góc nhìn Harness Engineering
 

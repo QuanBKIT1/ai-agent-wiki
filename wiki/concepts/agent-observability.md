@@ -49,5 +49,6 @@ Execution trace là công cụ bộc lộ [[silent-tool-call-failures|silent too
 
 ## Xem thêm
 - [[opentelemetry]] — chuẩn tracing được khuyến nghị
+- [[agent-infrastructure-stack]] — observability là một trong 5 layer của hạ tầng agent (logging / metrics / distributed tracing)
 - [[harness-engineering]] · [[silent-tool-call-failures]] · [[agent-cost-management]]
 - [[production-reliability]] — audit trail cho compliance
