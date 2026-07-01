@@ -5,7 +5,8 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/01_AI_Agents_Production_47Billion_VN]]"
-tags: [ai-agents, production, reliability, guardrails, security, compliance]
+  - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
+tags: [ai-agents, production, reliability, guardrails, security, compliance, harness]
 ---
 
 # Production Reliability & Security
@@ -56,6 +57,19 @@ Với team chạy microservices (ví dụ 33 FastAPI service trên AWS EKS), age
 
 Guardrails ([[human-in-the-loop|HITL]], output validation, action constraint, cost limit) là **infrastructure thiết yếu**, không phải nice-to-have.
 
+## Góc nhìn Harness Engineering
+
+Báo cáo 47Billion nói *cần gì* để reliable; [[harness-engineering|Harness Engineering]] nói *reliability được build ở đâu* — tầng harness, không phải model. Hai nguồn đồng thuận và bổ sung nhau:
+
+- "Ranh giới rõ ràng tàn nhẫn" cho tool use ↔ [[silent-tool-call-failures|verification sau mỗi tool call]].
+- "Hội thoại dài phá vỡ mọi thứ" + smart summarization ↔ [[context-window-management|context budget + tier]].
+- "Cost monitoring không thể thương lượng" ↔ [[agent-cost-management|cost envelope với hard limit]].
+- "Tinh chỉnh không bao giờ kết thúc" (85% → 95%) ↔ [[evaluation-pipeline|continuous evaluation]].
+- Audit trail cho compliance ↔ [[agent-observability|execution trace + span tracing]].
+
+Xem [[harness-checklist]] cho thứ tự ưu tiên build.
+
 ## Xem thêm
 - [[human-in-the-loop]] · [[agent-cost-management]] · [[autonomy-spectrum]]
 - [[agent-deployment-roadmap]] — progressive rollout theo phase
+- [[harness-engineering]] · [[harness-checklist]] — reliability ở tầng harness

@@ -24,8 +24,16 @@
 ### Production
 - [[concepts/human-in-the-loop]] — HITL là yêu cầu cho hệ thống đáng tin cậy; progressive autonomy
 - [[concepts/production-reliability]] — reliability playbook, 6 bài học, bảo mật & compliance
-- [[concepts/agent-cost-management]] — chi phí là cấp số nhân; cost table per task
+- [[concepts/agent-cost-management]] — chi phí là cấp số nhân; cost table + CostEnvelope hard limit
 - [[concepts/agent-deployment-roadmap]] — roadmap 3 phase áp dụng agent vào production
+
+### Harness Engineering (Production Lessons)
+- [[concepts/harness-engineering]] — failure ở tầng harness, không phải model; prompt có lợi ích giảm dần
+- [[concepts/silent-tool-call-failures]] — reliability killer #1; verify_tool_output → 81% lên 94%
+- [[concepts/context-window-management]] — overflow đánh vào task giá trị cao; budget + tier + checkpoint
+- [[concepts/agent-observability]] — execution trace, span-level (OpenTelemetry), cost attribution
+- [[concepts/evaluation-pipeline]] — continuous eval là production infrastructure, không phải QA
+- [[concepts/harness-checklist]] — 7 bước ưu tiên build harness
 
 ## Entities
 
@@ -38,16 +46,24 @@
 
 ### Organizations
 - [[entities/47billion]] — tác giả báo cáo AI Agents in Production 2026
+- [[entities/harness-engineering-blog|Harness Engineering]] — blog production lessons (harness layer)
 - [[entities/anthropic]] — phát hành MCP
 - [[entities/google]] — phát hành A2A
 - [[entities/copilotkit]] — phát hành AG-UI
 
+### People
+- [[entities/sarah-chen]] — tác giả bài Harness Engineering lessons learned
+
+### Tools & Standards
+- [[entities/opentelemetry]] — chuẩn observability cho span-level agent tracing
+
 ## Summaries (chronological)
 - 2026-02-24 — [[summaries/ai-agents-production-47billion]] — báo cáo 47Billion: frameworks, protocols, production lessons
+- 2026-03-10 — [[summaries/lessons-learned-harness-engineering]] — Harness Engineering: failure ở tầng harness, verify/cost/observability/eval
 
 ## Open Questions
 
 - So sánh hiệu quả giữa AutoGen, CrewAI, và LlamaIndex cho multi-agent systems?
 - Best practices cho cost management trong production AI agents?
 - MCP vs A2A: khi nào dùng cái nào?
-- Observability stack nào phù hợp nhất cho AI agents?
+- Observability stack nào phù hợp nhất cho AI agents? (một phần trả lời bởi [[concepts/agent-observability]] — OpenTelemetry span-level)

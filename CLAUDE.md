@@ -49,6 +49,7 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 ## Current articles
 
 - 47Billion — AI Agents in Production (2026-02-24) → [[summaries/ai-agents-production-47billion]]
+- Harness Engineering — Lessons Learned Deploying AI Agents (2026-03-10) → [[summaries/lessons-learned-harness-engineering]]
 
 ### Concepts
 - [[concepts/ai-agent-types]]
@@ -60,13 +61,21 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 - [[concepts/agent-cost-management]]
 - [[concepts/agent-deployment-roadmap]]
 - [[concepts/agent-protocols/index]] (folder-split: mcp, a2a, ag-ui)
+- [[concepts/harness-engineering]]
+- [[concepts/silent-tool-call-failures]]
+- [[concepts/context-window-management]]
+- [[concepts/agent-observability]]
+- [[concepts/evaluation-pipeline]]
+- [[concepts/harness-checklist]]
 
 ### Entities
 - [[entities/autogen]], [[entities/crewai]], [[entities/llamaindex]], [[entities/openai-agents-sdk]], [[entities/langgraph]]
 - [[entities/47billion]], [[entities/anthropic]], [[entities/google]], [[entities/copilotkit]]
+- [[entities/harness-engineering-blog]], [[entities/sarah-chen]], [[entities/opentelemetry]]
 
 ### Summaries
 - [[summaries/ai-agents-production-47billion]]
+- [[summaries/lessons-learned-harness-engineering]]
 
 ## Open research questions
 
