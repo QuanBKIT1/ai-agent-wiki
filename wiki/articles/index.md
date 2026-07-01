@@ -1,0 +1,26 @@
+---
+title: "📖 Bài viết (Tiếng Việt)"
+type: index
+created: 2026-07-01
+updated: 2026-07-01
+---
+
+# 📖 Bài viết (Tiếng Việt)
+
+Đây là các **bản viết lại đầy đủ, dễ đọc bằng tiếng Việt** của những bài đã crawl vào wiki — giữ trọn nội dung, diagram và số liệu của bài gốc. Khác với mục **Summaries** (bản tóm tắt ngắn để nắm nhanh ý chính), mục này dành cho ai muốn đọc kỹ toàn bộ bài.
+
+Mỗi bài đều liên kết hai chiều: từ đây có `📝 Bản tóm tắt ngắn` trỏ sang Summaries, và ngược lại.
+
+## Danh sách bài viết (mới nhất lên đầu)
+
+- [[articles/stripe-financial-compliance-agents|Production-Grade AI Agents cho Financial Compliance — Case Study Stripe]]
+  — Nguồn: AWS Machine Learning Blog (AWS + Stripe) | 26/06/2026 | ~12 phút
+
+- [[articles/lessons-learned-harness-engineering|Bài Học Từ Việc Triển Khai AI Agent Trên Production]]
+  — Nguồn: Harness Engineering Blog (Dr. Sarah Chen) | 10/03/2026 | ~12 phút
+
+- [[articles/deploying-ai-agents-mlm|Triển Khai AI Agent Lên Production: Kiến Trúc, Hạ Tầng và Lộ Trình Implementation]]
+  — Nguồn: MachineLearningMastery (Vinod Chugani) | 03/03/2026 | ~11 phút
+
+- [[articles/ai-agents-production-47billion|AI Agents trên Production: Framework, Protocol và Những Gì Thực Sự Hoạt Động Năm 2026]]
+  — Nguồn: 47Billion Blog (KamalPreet Singh & Samyak Jain) | 24/02/2026 | ~20 phút

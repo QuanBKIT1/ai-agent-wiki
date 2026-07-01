@@ -11,6 +11,8 @@ tags: [ai-agents, production, case-study, stripe, aws-bedrock, compliance, react
 
 # Production-Grade AI Agents cho Financial Compliance (Stripe, 2026)
 
+> 📖 Bản đầy đủ: [[articles/stripe-financial-compliance-agents]]
+
 Case study kỹ thuật của Stripe (đăng trên AWS ML Blog, 26/06/2026) về việc đưa AI agent vào quy trình **compliance review** ở quy mô $1.4 nghìn tỷ payment volume/năm trên 50 quốc gia. Vấn đề: analyst tốn ~80% thời gian **gom tài liệu** thay vì đánh giá rủi ro. Đây là bài production đầu tiên trong wiki mô tả một **kiến trúc agent thực tế đã chạy scale** với kết quả đo được.
 
 ## Key takeaways

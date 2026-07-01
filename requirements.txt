@@ -1,3 +1,4 @@
 mkdocs-material
 pymdown-extensions
 mkdocs-ezlinks-plugin
+mkdocs-awesome-pages-plugin

@@ -3,7 +3,16 @@
 > Knowledge base tổng hợp về AI/LLM — song ngữ Việt-Anh. Kiến thức được compile từ các bài báo, blog, papers.
 
 ## 🔖 Navigation
-- [[#Concepts]] · [[#Entities]] · [[#Summaries]] · [[#Open Questions]]
+- [[#📖 Bài viết đầy đủ|Bài viết]] · [[#Concepts]] · [[#Entities]] · [[#Summaries]] · [[#Open Questions]]
+
+## 📖 Bài viết đầy đủ
+
+Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của các bài crawl (khác với tóm tắt ngắn ở Summaries). Xem tất cả: [[articles/index|📖 Bài viết (Tiếng Việt)]].
+
+- [[articles/stripe-financial-compliance-agents]] — Case study Stripe (AWS, 26/06/2026)
+- [[articles/lessons-learned-harness-engineering]] — Bài học harness engineering (10/03/2026)
+- [[articles/deploying-ai-agents-mlm]] — Kiến trúc & hạ tầng deploy (03/03/2026)
+- [[articles/ai-agents-production-47billion]] — Tổng quan frameworks & protocols (24/02/2026)
 
 ## Concepts
 

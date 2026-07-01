@@ -76,7 +76,17 @@ Chọn **tối đa 5 bài**.
    - Tạo `wiki/summaries/<slug>.md` (200–400 từ), concept pages, entity pages.
    - **Cross-link 2 chiều** với page cũ trùng chủ đề; update `wiki/index.md` (mỗi page đúng 1 lần); ghi log.
    - Nếu >70% ý trùng bài cũ → không tạo page trùng, thay vào đó bổ sung/mở rộng page cũ và ghi chú "Bổ sung cho [[page]]".
-4. **Ghi ledger** (bắt buộc, ngay sau khi ingest thành công):
+4. **Viết bản đầy đủ tiếng Việt** → `wiki/articles/<slug>.md` (mục "📖 Bài viết" — được publish):
+   - **Viết lại/biên soạn** cho người Việt dễ đọc, KHÔNG dịch nguyên văn (transformative + an toàn bản quyền). Giữ đầy đủ ý chính, cấu trúc, ví dụ, số liệu; code giữ nguyên English.
+   - Frontmatter: `title`, `type: article`, `created`, `updated`, `sources` (gồm URL gốc), `tags`.
+   - Ngay dưới H1, chèn khối attribution:
+     ```
+     > **Nguồn gốc**: [<tên nguồn>](<url>)
+     > **Tác giả**: <tác giả> | **Ngày đăng**: <ngày> | **Thời gian đọc**: ~<n> phút | ⭐ <rating>/5
+     ```
+   - Link 2 chiều: bài này link tới `[[summaries/<slug>]]` và các concept liên quan; summary trỏ lại `[[articles/<slug>]]`.
+   - Thêm dòng vào `wiki/articles/index.md` (tạo nếu chưa có), sắp xếp mới nhất lên đầu.
+5. **Ghi ledger** (bắt buộc, ngay sau khi ingest thành công):
    ```bash
    python3 scripts/ledger.py add "<url>" "<title>" "<source-domain>"
    ```

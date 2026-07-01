@@ -23,6 +23,7 @@ theme:
     - content.code.copy
 plugins:
   - search
+  - awesome-pages
   - ezlinks:
       wikilinks: true
 markdown_extensions:

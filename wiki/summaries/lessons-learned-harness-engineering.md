@@ -11,6 +11,8 @@ tags: [ai-agents, production, harness, observability, cost, evaluation, reliabil
 
 # Bài Học Triển Khai AI Agent Trên Production (Harness Engineering, 2026)
 
+> 📖 Bản đầy đủ: [[articles/lessons-learned-harness-engineering]]
+
 Incident retrospective của Dr. [[sarah-chen|Sarah Chen]] ([[harness-engineering-blog|Harness Engineering]], 10/03/2026), đúc kết từ hàng chục lần deploy AI agent. Thông điệp trung tâm: khi agent fail trên production, **thủ phạm gần như không bao giờ là model hay prompt — mà là tầng harness** (orchestration, tool integration, context management, error handling, verification) bao quanh model.
 
 ## Key takeaways

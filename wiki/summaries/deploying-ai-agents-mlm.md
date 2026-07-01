@@ -11,6 +11,8 @@ tags: [ai-agents, production, deployment, architecture, infrastructure, topology
 
 # Triển Khai AI Agent Lên Production (MachineLearningMastery, 2026)
 
+> 📖 Bản đầy đủ: [[articles/deploying-ai-agents-mlm]]
+
 Bài hướng dẫn hệ thống của Vinod Chugani ([[machinelearningmastery|MachineLearningMastery]], 03/03/2026): cách đưa một AI agent từ prototype thành hệ thống production đáng tin cậy, scale được — bằng cách **chọn kiến trúc đúng, build hạ tầng phù hợp, và thực thi rollout plan thực tế**. Đây là góc nhìn *infrastructure/architecture* bổ sung cho góc nhìn *harness/reliability* của [[lessons-learned-harness-engineering|Harness Engineering]] và góc nhìn *adoption* của [[ai-agents-production-47billion|47Billion]].
 
 ## Key takeaways

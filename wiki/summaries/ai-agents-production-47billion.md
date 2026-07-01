@@ -11,6 +11,8 @@ tags: [ai-agents, production, frameworks, protocols, react-pattern, multi-agent]
 
 # AI Agents trên Production — Frameworks, Protocols và Những Gì Thực Sự Hoạt Động (47Billion, 2026)
 
+> 📖 Bản đầy đủ: [[articles/ai-agents-production-47billion]]
+
 Báo cáo thực chiến của [[47billion]] (tác giả KamalPreet Singh & Samyak Jain, 24/02/2026), đúc kết từ 4 tháng xây dựng nhiều PoC và một hệ thống production cho công ty bảo hiểm toàn cầu. Thông điệp trung tâm: bối cảnh AI agent năm 2025-2026 **đồng thời mạnh mẽ hơn và mong manh hơn** so với những gì marketing ngụ ý — khoảng cách giữa demo và production rộng hơn nhiều so với thừa nhận thông thường.
 
 ## Key takeaways
