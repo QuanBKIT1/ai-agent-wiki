@@ -9,12 +9,33 @@ Knowledge base về AI/LLM — song ngữ Việt-Anh.
 - **AI Agents Production** — Deploy, vận hành, kiến trúc AI agents trong production
 - *(thêm categories mới theo thời gian)*
 
-## Cách đóng góp
+## Thêm tài liệu (tự động)
 
-1. Thêm bài mới vào `raw/<category>/`
-2. Dùng Claude agent với llm-wiki skill để ingest
-3. Review wiki pages trong `wiki/`
-4. File feedback qua web viewer hoặc Obsidian plugin
+Một lệnh duy nhất lo trọn luồng: copy → ingest (AI) → lint → commit → push → deploy.
+
+```bash
+./scripts/add-doc.sh <file> <category>
+
+# ví dụ
+./scripts/add-doc.sh ~/Downloads/rag-guide.md rag
+./scripts/add-doc.sh ./notes/eval-methods.md ai-agents-production
+```
+
+Sau khi chạy, GitHub Actions tự build và deploy — site cập nhật sau ~1 phút.
+
+**Tùy chọn (biến môi trường):**
+- `WIKI_MODEL=opus` — đổi model cho bước ingest (mặc định `sonnet`)
+- `NO_PUSH=1` — làm mọi thứ trừ push (commit vẫn tạo, để bạn review rồi tự `git push`)
+- `DRY_RUN=1` — in các bước mà không thực thi
+
+> Bước ingest chạy `claude` headless với `--dangerously-skip-permissions` để không bị treo ở prompt. Script chỉ đụng thư mục wiki này, chạy local trên máy bạn.
+
+### Làm thủ công (nếu muốn kiểm soát từng bước)
+
+1. Copy bài vào `raw/<category>/`
+2. Mở Claude Code trong repo, gõ: `ingest raw/<category>/<file>`
+3. Review pages trong `wiki/` (hoặc `mkdocs serve`)
+4. `git add -A && git commit && git push`
 
 ## Local preview
 
