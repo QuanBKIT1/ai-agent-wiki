@@ -37,19 +37,34 @@ Sau khi chạy, GitHub Actions tự build và deploy — site cập nhật sau ~
 3. Review pages trong `wiki/` (hoặc `mkdocs serve`)
 4. `git add -A && git commit && git push`
 
-## Crawl hàng loạt từ danh sách URL (`/loop`)
+## Crawl tự động hàng tuần (`/crawl-next`)
 
-Crawl có giám sát nhiều bài từ URL, mỗi lần một bài:
+Skill `crawl-next` tự tìm bài mới về triển khai AI Agent trên Production (7 ngày gần nhất), dedup, compile vào wiki, viết digest tiếng Việt, rồi commit + push.
 
-1. Mở `scripts/crawl-queue.txt`, dán các URL (mỗi dòng: `<url> [category]`).
-2. Trong Claude Code, chạy: `/loop /crawl-next`
-3. Mỗi vòng lặp xử lý **một** URL: fetch → lưu `raw/` → ingest → lint → commit → push. Khi hết queue nó báo `QUEUE EMPTY` → nhấn Esc để dừng.
+```
+# trong Claude Code (mở tại repo này)
+/crawl-next            # chạy một lần cho tuần này
+```
+
+Luồng: dedup ledger → WebSearch nhiều query → lọc (7 ngày, dedup, chất lượng, nguồn uy tín, tối đa 5 bài) → fetch → ingest vào wiki → ghi ledger → digest `wiki/digests/` → push.
+
+**Chạy định kỳ không cần máy bật:** dùng GitHub Actions cron hoặc `/schedule` để gọi workflow này mỗi tuần.
+
+**Ép URL cụ thể (tùy chọn):** dán URL vào `scripts/crawl-queue.txt` để crawl-next xử lý thay vì tìm tự động.
+
+### Dedup ledger
+
+`data/ingested-sources.jsonl` (tracked) là nguồn sự thật duy nhất về "đã ingest gì" — mỗi bài một dòng (URL chuẩn hóa + title + ngày). Dedup là tra cứu O(1), không đọc lại digest cũ:
+
+```bash
+printf '%s\n' "$url1" "$url2" | python3 scripts/ledger.py check   # in ra URL mới
+python3 scripts/ledger.py add "<url>" "<title>" "<source>"        # ghi sau khi ingest
+python3 scripts/ledger.py titles                                  # liệt kê title đã có
+```
 
 > `crawl-next` là một **skill** trong `.claude/skills/crawl-next/` (project-scoped — tự nhận khi mở Claude Code trong repo này).
 
-> `/loop` chỉ chạy khi phiên Claude Code đang mở (đóng máy là dừng) — phù hợp crawl có giám sát. Muốn chạy định kỳ không cần máy bật, dùng GitHub Actions cron hoặc `/schedule`.
-
-**Lưu ý bản quyền:** thư mục `raw/` (full-text bài gốc) được **gitignore** — chỉ giữ local. Repo public chỉ chứa wiki đã compile (tóm tắt/biên dịch).
+**Lưu ý bản quyền:** thư mục `raw/` (full-text bài gốc) được **gitignore** — chỉ giữ local. Repo public chỉ chứa wiki đã compile (tóm tắt/biên dịch) + digest tiếng Việt.
 
 ## Local preview
 

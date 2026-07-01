@@ -1,75 +1,123 @@
 ---
 name: crawl-next
 description: >-
-  Crawl and ingest the NEXT URL from scripts/crawl-queue.txt into the AI Agent
-  Wiki, then commit + push (GitHub Actions deploys). Processes exactly ONE URL
-  per invocation so it can be driven by `/loop /crawl-next` for supervised
-  batch crawling. Use when the user wants to crawl queued article/blog URLs into
-  the wiki, or asks to "process the next queued document". Not for ingesting a
-  local file already on disk (use scripts/add-doc.sh for that).
+  Weekly autonomous crawler for the AI Agent Wiki. Searches the web for the
+  latest articles/papers/blogs on deploying AI Agents in production (last 7
+  days), deduplicates against the ledger (data/ingested-sources.jsonl),
+  compiles selected articles into the wiki via the llm-wiki skill, writes a
+  Vietnamese weekly digest, then commits + pushes (GitHub Actions deploys). Use
+  when the user wants to discover and ingest new production AI-agent material,
+  runs `/crawl-next`, or schedules a weekly crawl. Dedup is O(1) against the
+  ledger — never re-read past digests.
 ---
 
-# crawl-next — supervised URL crawler for the AI Agent Wiki
+# crawl-next — weekly AI-Agent-in-production crawler
 
-Process **exactly ONE** URL per invocation. Repo root: `/Users/quan.ld/workspace/ai-agent-wiki`.
+Repo root: `/Users/quan.ld/workspace/ai-agent-wiki`. All paths below are relative to it.
+Tìm kiếm các bài báo, paper, blog **mới nhất** về triển khai AI Agent trên môi trường Production, xuất bản trong **7 ngày gần đây**, rồi ingest vào wiki.
 
-## Step 1 — Pick the next URL
+## Phase 0 — Load the dedup ledger (thay cho việc đọc lại toàn bộ digest cũ)
 
-Read `scripts/crawl-queue.txt`. Line format (one per line): `<url> [category]`
-- Skip lines that are blank, start with `#`, or start with `done:`.
-- `category` is optional; default `ai-agents-production`. Must be kebab-case.
+The ledger `data/ingested-sources.jsonl` is the single source of truth for "đã ingest gì". Do NOT read past digests to dedup — that is slow and grows unbounded.
 
-Find the FIRST unhandled line.
-- If none → print `✅ QUEUE EMPTY — nothing left to crawl. Stop the loop (press Esc).` and STOP. Do not commit.
-- Otherwise continue with that URL + category.
-
-## Step 2 — Fetch and save to raw/
-
-- Use WebFetch to retrieve the URL. Extract the **main article content** (title, body); discard nav/ads/footers.
-- Derive a kebab-case English `<slug>` from the article title.
-- Save cleaned Markdown to `raw/<category>/<slug>.md` (create the folder if needed) with frontmatter:
-  ```yaml
-  ---
-  source_url: <the url>
-  fetched: 2026-07-01   # today's date
-  category: <category>
-  ---
+- Get the list of known titles for near-dup comparison:
+  ```bash
+  python3 scripts/ledger.py titles
   ```
-- `raw/` is gitignored (local only) — it will NOT be published; only the compiled wiki pages are.
+  Keep this short list in mind for Phase 2 step (c).
 
-## Step 3 — Ingest with the llm-wiki skill
+## Phase 1 — Search (WebSearch, query đa dạng)
 
-Invoke the `llm-wiki` skill and `ingest` `raw/<category>/<slug>.md`, following `CLAUDE.md` strictly:
-- Language: technical terms in English, explanations in Vietnamese.
-- Create `wiki/summaries/<slug>.md` (200–400 words).
-- Create/update concept pages in `wiki/concepts/` (folder-split with `index.md` if a page would exceed ~1200 words).
-- Create/update entity pages in `wiki/entities/`.
-- **Cross-link bidirectionally** with existing pages on overlapping topics.
-- Update `wiki/index.md` so every new page appears exactly once.
-- Append an ingest entry to today's `log/` file.
-- Mermaid for diagrams, KaTeX for formulas. Fix any `[[x\|y]]` escaped-pipe links in table cells to plain `[[x]]`.
+Chạy WebSearch với các query sau (thay `<năm>` = năm hiện tại):
+- `building AI agents in production <năm>`
+- `production AI agent deployment lessons`
+- `AI agent architecture best practices`
+- `LLM agent observability monitoring`
+- `multi-agent system production`
+- `MCP A2A protocol production agents`
 
-## Step 4 — Lint (informational)
+Gom toàn bộ URL candidate lại.
 
-Run: `python3 ~/workspace/llm-wiki-skill/llm-wiki/scripts/lint_wiki.py /Users/quan.ld/workspace/ai-agent-wiki`
-Ignore `[[raw/...]]` dead-link warnings (known limitation). Fix any REAL dead links or orphan pages.
+## Phase 2 — Filter (theo thứ tự)
 
-## Step 5 — Commit + push
+**(a) Dedup URL trước tiên — deterministic, không đoán bằng mắt.** Đưa toàn bộ URL candidate qua ledger:
+```bash
+printf '%s\n' "$url1" "$url2" ... | python3 scripts/ledger.py check
+```
+Chỉ những URL **mới** (chưa có trong ledger, đã chuẩn hóa www/scheme/query/trailing-slash) lọt ra. Bỏ hết phần còn lại.
+
+Với các URL mới:
+- **(b)** Chỉ giữ bài xuất bản trong **7 ngày gần nhất**.
+- **(c)** Loại bài có tiêu đề tương tự (>80% giống) với `title_key` đã có trong ledger (dùng danh sách ở Phase 0).
+- **(d)** Ưu tiên bài chi tiết (>10 phút đọc), có case study thực tế, hoặc kèm code.
+- **(e)** Loại bài marketing/quảng cáo thuần túy; loại nội dung trùng lặp giữa các bài vừa tìm.
+- **(f)** Ưu tiên nguồn uy tín: Google Cloud, AWS, Anthropic, OpenAI, IBM, MLflow, LangChain, blog engineering của các công ty công nghệ, arxiv.org, Medium engineering publications.
+
+Chọn **tối đa 5 bài**.
+
+## Phase 3 — Với mỗi bài chọn được: fetch → ingest → ledger
+
+1. **Fetch** nội dung đầy đủ bằng WebFetch.
+2. **Save raw** vào `raw/<category>/<slug>.md` (mặc định category `ai-agents-production`; kebab-case English slug) kèm frontmatter:
+   ```yaml
+   ---
+   source_url: <url>
+   author: <tác giả nếu có>
+   published: <ngày đăng>
+   read_time: <phút>
+   rating: <1-5>
+   fetched: <hôm nay>
+   category: <category>
+   ---
+   ```
+   (`raw/` gitignored — local only, không publish.)
+3. **Ingest vào wiki** bằng skill `llm-wiki` (`ingest raw/<category>/<slug>.md`), tuân thủ `CLAUDE.md`:
+   - Thuật ngữ kỹ thuật giữ English, giải thích tiếng Việt; code giữ nguyên English.
+   - Tạo `wiki/summaries/<slug>.md` (200–400 từ), concept pages, entity pages.
+   - **Cross-link 2 chiều** với page cũ trùng chủ đề; update `wiki/index.md` (mỗi page đúng 1 lần); ghi log.
+   - Nếu >70% ý trùng bài cũ → không tạo page trùng, thay vào đó bổ sung/mở rộng page cũ và ghi chú "Bổ sung cho [[page]]".
+4. **Ghi ledger** (bắt buộc, ngay sau khi ingest thành công):
+   ```bash
+   python3 scripts/ledger.py add "<url>" "<title>" "<source-domain>"
+   ```
+
+## Phase 4 — Viết digest tuần (tiếng Việt) → published wiki
+
+Tạo `wiki/digests/<YYYY-MM-DD>-digest.md` (nằm trong wiki nên **được publish**; thay cho vị trí raw/ cũ vì raw/ gitignored). Nội dung tiếng Việt, code giữ English:
+- **Danh sách bài mới** — mỗi bài: tiêu đề, tác giả, ngày đăng, thời gian đọc, URL gốc, ⭐ (1-5), tóm tắt 3-5 điểm chính.
+- **Bài bổ sung/mở rộng ý cũ** (nếu có).
+- **Xu hướng mới nổi tuần này.**
+- **Recommendation đọc theo thứ tự nào.**
+
+Cập nhật `wiki/digests/index.md` (tạo nếu chưa có): thêm link đến digest mới nhất, sắp xếp thời gian **giảm dần**. Thêm digest vào `wiki/index.md` dưới category phù hợp.
+
+> "Đã indexed URLs" = chính ledger `data/ingested-sources.jsonl` (greppable). Không duy trì danh sách URL thủ công trong prose — tránh 2 nguồn lệch nhau.
+
+## Phase 5 — Trường hợp không có bài mới
+
+Nếu sau khi lọc không còn bài nào đáng chú ý, **vẫn tạo** `wiki/digests/<YYYY-MM-DD>-digest.md` ghi rõ:
+- "Không có bài mới đáng chú ý tuần này."
+- Số bài tìm được nhưng bị lọc + lý do (trùng URL, trùng nội dung, không đủ chất lượng, quá cũ).
+- Danh sách query đã thử.
+
+## Phase 6 — Lint, commit, push
 
 ```bash
+python3 ~/workspace/llm-wiki-skill/llm-wiki/scripts/lint_wiki.py /Users/quan.ld/workspace/ai-agent-wiki   # bỏ qua cảnh báo [[raw/...]]
 cd /Users/quan.ld/workspace/ai-agent-wiki
-git add wiki/ log/ CLAUDE.md
-git commit -m "feat: crawl+ingest <slug> (<category>)"
+git add wiki/ log/ CLAUDE.md data/ingested-sources.jsonl
+git commit -m "feat: weekly crawl <YYYY-MM-DD> (N bài mới)"
 git push origin main
 ```
-If `git diff --cached --quiet` (ingest produced no changes), do NOT commit — report why, but still mark the URL done.
+Nếu `git diff --cached --quiet` (không có gì mới) → vẫn commit digest "không có bài mới" nếu đã tạo; nếu thật sự không có thay đổi thì báo và bỏ qua commit.
 
-## Step 6 — Mark the URL done
+## Phase 7 — Báo cáo (tiếng Việt, ngắn gọn)
 
-Edit `scripts/crawl-queue.txt`: prefix the processed line with `done: ` so the next run skips it.
+- ✅ Số bài mới đã ingest + tiêu đề.
+- Số bài bị lọc (kèm lý do gom nhóm).
+- Digest: `wiki/digests/<YYYY-MM-DD>-digest.md`.
+- Commit `<short-sha>` — site cập nhật sau ~1 phút.
 
-## Step 7 — Report
+---
 
-- ✅ Processed: `<url>` → `<slug>` (N wiki pages touched)
-- Remaining in queue: `<count>`
-- Commit: `<short-sha>` (or "no changes")
+**Manual seed (tùy chọn):** nếu muốn ép crawl URL cụ thể thay vì tìm tự động, dán URL vào `scripts/crawl-queue.txt` và xử lý chúng ở Phase 3 (vẫn qua `ledger.py check` để tránh trùng).
