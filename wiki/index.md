@@ -90,6 +90,7 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 - [[digests/index|Weekly Crawl Digests]] — tổng hợp crawl hằng tuần các bài AI-agent-in-production mới nhất
     - [[digests/2026-07-01-digest|2026-07-01]] — 1 bài mới: AWS/Stripe production AI agents cho financial compliance
     - [[digests/2026-07-01-backfill-digest|2026-07-01 (backfill)]] — 2 bài backfill: Braintrust observability + CrewAI production lessons
+    - [[digests/2026-07-02-digest|2026-07-02]] — không có bài mới trong cửa sổ 7 ngày
 
 ## Open Questions
 
