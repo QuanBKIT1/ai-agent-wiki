@@ -6,6 +6,7 @@ updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
   - "[[raw/ai-agents-production/agent-observability-guide-braintrust]]"
+  - "[[raw/ai-agents-production/state-of-agent-engineering-langchain]]"
 tags: [ai-agents, production, harness, observability, tracing, opentelemetry, spans, evaluation]
 ---
 
@@ -67,7 +68,12 @@ Bổ sung từ guide [[agent-observability-guide-braintrust|Braintrust 2026]]: m
 
 Và quan trọng nhất, trace không chỉ để debug: trace **fail online scoring → chuyển thành eval case**, rồi CI gate (GitHub Action) block merge nếu quality tụt — đây là hiện thực hoá [[evaluation-pipeline|continuous evaluation]]. Landscape platform: [[braintrust|Braintrust]] (trace-to-eval), Galileo AI (guardrails), Arize Phoenix (OSS, [[opentelemetry|OTEL]]-first), Datadog (APM).
 
+## Đã thành thực hành chuẩn (số liệu 2026)
+
+Khảo sát [[state-of-agent-engineering-langchain|State of Agent Engineering]] (LangChain, n=1.340) cho thấy observability không còn là "nice-to-have": **89%** tổ chức đã triển khai; với production agent lên **94%**, trong đó **71,5%** có full tracing và **62%** giữ trace chi tiết ở mức step + tool call. Nói cách khác, step-level trace mô tả ở trên chính là mức tối thiểu mà đa số team production đã đạt.
+
 ## Xem thêm
+- [[state-of-agent-engineering-langchain]] · 📖 [[articles/state-of-agent-engineering-langchain]] — 89%/94%/71,5% adoption observability
 - [[agent-observability-guide-braintrust]] · 📖 [[articles/agent-observability-guide-braintrust]] — 4 loại span, APM vs agent-observability, code LangGraph+Mastra
 - [[braintrust]] — platform trace-to-eval
 - [[evaluation-pipeline]] — trace fail nuôi eval case

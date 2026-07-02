@@ -5,6 +5,7 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
+  - "[[raw/ai-agents-production/state-of-agent-engineering-langchain]]"
 tags: [ai-agents, production, harness, evaluation, monitoring, quality]
 ---
 
@@ -48,6 +49,11 @@ Không phải investment nhỏ. Production evaluation pipeline cần:
 - Cộng hưởng với bài học "tinh chỉnh không bao giờ kết thúc" của [[production-reliability]]: dự án bảo hiểm đi từ 85% → 95% accuracy qua 2 tháng tuning liên tục — chỉ khả thi khi có continuous evaluation.
 - Là ưu tiên cuối trong [[harness-checklist]] (build trong 60 ngày đầu production).
 
+## Số liệu ngành (2026)
+
+Khảo sát [[state-of-agent-engineering-langchain|State of Agent Engineering]] (LangChain, n=1.340) định lượng độ chín của thực hành eval: **offline 52,4%**, **online 37,3%** (44,8% ở nhóm production), ~25% dùng cả hai. Phương pháp phổ biến: **human review 59,8%**, **LLM-as-judge 53,3%**; ROUGE/BLEU ít dùng. Đáng chú ý: eval **trưởng thành chậm hơn observability** (89% đã có observability) — nhiều team *nhìn thấy* hành vi agent nhưng chưa *chấm điểm* nó một cách hệ thống.
+
 ## Xem thêm
+- [[state-of-agent-engineering-langchain]] · 📖 [[articles/state-of-agent-engineering-langchain]] — số liệu offline/online eval toàn ngành
 - [[harness-engineering]] · [[agent-observability]] · [[harness-checklist]]
 - [[production-reliability]] — tinh chỉnh lặp không bao giờ kết thúc

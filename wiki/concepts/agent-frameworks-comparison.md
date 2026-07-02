@@ -60,6 +60,11 @@ Dẫn chứng thực tế: build lại đúng hệ thống đặt bàn với Cre
 
 Mọi framework này đều triển khai một biến thể của [[react-pattern|ReAct]]. Chọn framework theo vị trí use case trên [[autonomy-spectrum]] và mô hình chi phí (xem [[agent-cost-management]]).
 
+## Bối cảnh ngành: multi-model là chuẩn
+
+Theo [[state-of-agent-engineering-langchain|khảo sát LangChain 2026]] (n=1.340): dù **OpenAI GPT** chiếm **67%+**, có tới **75%+** tổ chức deploy **nhiều model** (multi-vendor) thay vì đặt cược một nhà cung cấp; **33%** self-host model open-source; chỉ **43%** fine-tune (đa số dùng base model + prompt + RAG). Hàm ý: lựa chọn framework nên tính đến khả năng **provider-agnostic / model routing**, không khóa cứng vào một model.
+
 ## Xem thêm
+- [[state-of-agent-engineering-langchain]] — số liệu multi-model & fine-tuning toàn ngành
 - [[human-in-the-loop]] — cách mỗi framework hỗ trợ HITL
 - [[agent-deployment-roadmap]] — thứ tự áp dụng framework

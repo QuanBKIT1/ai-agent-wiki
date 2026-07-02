@@ -11,6 +11,7 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 
 - [[articles/stripe-financial-compliance-agents]] — Case study Stripe (AWS, 26/06/2026)
 - [[articles/agent-observability-guide-braintrust]] — Agent observability guide (Braintrust, 21/06/2026, *backfill*)
+- [[articles/state-of-agent-engineering-langchain]] — State of Agent Engineering, khảo sát 1.340 người (LangChain, 12/06/2026, *backfill*)
 - [[articles/crewai-production-lessons]] — CrewAI production lessons (AgileSoftLabs, 15/06/2026, *backfill*)
 - [[articles/lessons-learned-harness-engineering]] — Bài học harness engineering (10/03/2026)
 - [[articles/deploying-ai-agents-mlm]] — Kiến trúc & hạ tầng deploy (03/03/2026)
@@ -77,11 +78,13 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 ### Tools & Standards
 - [[entities/opentelemetry]] — chuẩn observability cho span-level agent tracing
 - [[entities/braintrust]] — platform agent observability + evaluation (trace → eval → CI gate)
+- [[entities/langchain]] — hệ sinh thái LangChain/LangGraph; publisher báo cáo State of Agent Engineering
 
 ## Summaries (chronological)
 - 2026-02-24 — [[summaries/ai-agents-production-47billion]] — báo cáo 47Billion: frameworks, protocols, production lessons
 - 2026-03-03 — [[summaries/deploying-ai-agents-mlm]] — MachineLearningMastery: execution models, 5-layer infra stack, deployment topologies, roadmap
 - 2026-03-10 — [[summaries/lessons-learned-harness-engineering]] — Harness Engineering: failure ở tầng harness, verify/cost/observability/eval
+- 2026-06-12 — [[summaries/state-of-agent-engineering-langchain]] — LangChain: khảo sát 1.340 người; 57,3% production, 89% observability, 75%+ multi-model *(backfill)*
 - 2026-06-15 — [[summaries/crewai-production-lessons]] — CrewAI production: narrow agents, max_iter, $/run, sequential>hierarchical, Pydantic *(backfill)*
 - 2026-06-21 — [[summaries/agent-observability-guide-braintrust]] — Braintrust: 4 loại span, APM vs agent-obs, trace→eval→CI gate *(backfill)*
 - 2026-06-26 — [[summaries/stripe-financial-compliance-agents]] — Stripe/AWS: Agent Service microservice, LLM Proxy, DAG, prompt caching 60%, HITL compliance
@@ -91,6 +94,7 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
     - [[digests/2026-07-01-digest|2026-07-01]] — 1 bài mới: AWS/Stripe production AI agents cho financial compliance
     - [[digests/2026-07-01-backfill-digest|2026-07-01 (backfill)]] — 2 bài backfill: Braintrust observability + CrewAI production lessons
     - [[digests/2026-07-02-digest|2026-07-02]] — không có bài mới trong cửa sổ 7 ngày
+    - [[digests/2026-07-02-backfill-digest|2026-07-02 (backfill)]] — 1 bài backfill: LangChain State of Agent Engineering (survey)
 
 ## Open Questions
 
