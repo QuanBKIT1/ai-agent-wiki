@@ -5,7 +5,8 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/04_Stripe_Financial_Compliance_Agents_VN]]"
-tags: [ai-agents, production, architecture, microservice, llm-proxy, dag, case-study, stripe]
+  - "[[raw/ai-agents-production/grab-multi-agent-engineering-support]]"
+tags: [ai-agents, production, architecture, microservice, llm-proxy, dag, case-study, stripe, grab]
 ---
 
 # Agent Service Architecture
@@ -66,8 +67,20 @@ Quan trọng: hệ thống **không tin tuyệt đối vào output agent** — r
 - **Cost instrumentation** track token/invocation giúp forecast chi tiêu và phát hiện điểm tối ưu **trước khi** vượt ngân sách (bổ trợ [[agent-cost-management|CostEnvelope hard limit]]).
 - **Async + DAG** là thiết yếu cho tương tác agent phức tạp mà vẫn giữ auditability và [[human-in-the-loop|human oversight]] ở scale.
 
+## Case study thứ hai: Grab (engineering support)
+
+[[grab-multi-agent-engineering-support|Grab]] (2026) cho một biến thể của cùng pattern ở domain khác (support nền tảng dữ liệu nội bộ, không phải compliance):
+- **Decomposition**: thay vì DAG, Grab dùng **Classifier → chuỗi agent tuần tự** ("huddle") — Data → Code Search → On-call → Summarizer.
+- **Orchestrator** quản state + context handoff giữa stage (giống vai trò Review Interface + Orchestrator của Stripe).
+- **Specialists over generalists**: 5 agent hẹp thay vì 1 agent tổng quát.
+- **HITL**: Enhancement Agent sinh code nhưng human duyệt cuối.
+- Stack: **FastAPI + [[langgraph|LangGraph]] + Redis + PostgreSQL**.
+
+Hai case study hội tụ cùng thông điệp: **infrastructure-first + rail/agent hẹp + human-in-the-loop**.
+
 ## Xem thêm
-- [[stripe-financial-compliance-agents]] — case study nguồn
+- [[stripe-financial-compliance-agents]] — case study nguồn (compliance, DAG)
+- [[grab-multi-agent-engineering-support]] · 📖 [[articles/grab-multi-agent-engineering-support]] — case study Grab (engineering support, huddle)
 - [[agent-execution-models]] — Stateless → Stateful → Event-driven (agent service của Stripe đi đúng lộ trình này)
 - [[agent-infrastructure-stack]] — 5-layer stack; agent service nằm ở Compute + Communication layer
 - [[react-pattern]] — vòng lặp mà agent service thực thi
