@@ -6,7 +6,9 @@ updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/01_AI_Agents_Production_47Billion_VN]]"
   - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
-tags: [ai-agents, production, reliability, guardrails, security, compliance, harness]
+  - "[[raw/ai-agents-production/ade-prf-agent-reliability-prediction]]"
+  - "[[raw/ai-agents-production/anthropic-2026-state-of-ai-agents]]"
+tags: [ai-agents, production, reliability, guardrails, security, compliance, harness, prediction]
 ---
 
 # Production Reliability & Security
@@ -69,7 +71,17 @@ Báo cáo 47Billion nói *cần gì* để reliable; [[harness-engineering|Harne
 
 Xem [[harness-checklist]] cho thứ tự ưu tiên build.
 
+## Predictive reliability (leading indicator)
+
+Reliability playbook ở trên chủ yếu là **reactive** (guardrail chặn, validate, rollback). [[ade-prf-agent-reliability-prediction|ADE-PRF]] thêm lớp **predictive** cho hệ multi-agent chạy dài: gộp 20 tín hiệu thành **Trust Margin (0–100)** và dự đoán health 8 giờ tới (Precision 89,3%, Recall 84,7% trên 380k prediction/15 ngày production), bắt sớm **"false prosperity"** — degradation bị metric bề mặt che. Threshold Trust Margin thấp trở thành alert phòng ngừa trước khi cascade. Bổ trợ cho [[agent-observability]] (từ trace phản ứng sang dự báo).
+
+## Bối cảnh ngành (2026)
+
+Số liệu adoption củng cố việc reliability/guardrail đã là mặc định production: [[anthropic-2026-state-of-ai-agents|khảo sát Anthropic]] (500+ leaders) cho thấy **86%** deploy coding agent cho production code, **42%** để agent *dẫn dắt với human oversight*, **80%** báo cáo ROI đo được — nhưng model production cần **secure với proprietary data + compliant + robust trước jailbreak**, đúng các mối lo ở mục Bảo mật & Compliance. Đối chiếu [[state-of-agent-engineering-langchain|LangChain survey]] (quality là rào cản #1: 32%).
+
 ## Xem thêm
+- [[ade-prf-agent-reliability-prediction]] — predictive reliability (Trust Margin)
+- [[anthropic-2026-state-of-ai-agents]] · [[state-of-agent-engineering-langchain]] — số liệu adoption/ROI/rào cản
 - [[human-in-the-loop]] · [[agent-cost-management]] · [[autonomy-spectrum]]
 - [[agent-deployment-roadmap]] — progressive rollout theo phase
 - [[harness-engineering]] · [[harness-checklist]] — reliability ở tầng harness

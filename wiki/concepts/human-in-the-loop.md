@@ -5,6 +5,7 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/01_AI_Agents_Production_47Billion_VN]]"
+  - "[[raw/ai-agents-production/anthropic-2026-state-of-ai-agents]]"
 tags: [ai-agents, hitl, production, reliability, guardrails]
 ---
 
@@ -54,7 +55,12 @@ Cùng với [[production-reliability|guardrails khác]] (output validation, cost
 
 [[stripe-financial-compliance-agents|Stripe]] là minh chứng HITL bắt buộc trong ngành regulated: agent **không tự quyết định** — output chỉ là thông tin bổ trợ, reviewer con người vẫn phải trả lời từng sub-task của review. Pattern này thuộc nhóm **Approval Gates + Review & Edit**, và vẫn tạo ROI rõ rệt (giảm 26% median handling time, >96% helpfulness) đồng thời đạt chuẩn audit cho examination. Bài học: HITL + rail hẹp cho agent không làm mất giá trị, mà là điều kiện để triển khai được ở ngành finance.
 
+## Số liệu ngành: HITL là chuẩn, không phải ngoại lệ
+
+[[anthropic-2026-state-of-ai-agents|Khảo sát Anthropic 2026]] (500+ technical leaders) định lượng điều này: **42%** tổ chức tin agent **dẫn dắt** development *với human oversight* (phần còn lại chỉ cho agent hỗ trợ) — tức ngay cả khi trao quyền nhiều nhất, con người vẫn giám sát. Đúng tinh thần *progressive autonomy*: mở rộng quyền cho agent nhưng giữ checkpoint. (Xem thêm nguyên tắc "no agent ships to production without a human in the loop — câu hỏi chỉ là *ở đâu*".)
+
 ## Xem thêm
+- [[anthropic-2026-state-of-ai-agents]] — 42% để agent dẫn dắt với human oversight
 - [[production-reliability]] — reliability playbook đầy đủ
 - [[ag-ui]] — protocol hỗ trợ HITL approval ở tầng UI
 - [[stripe-financial-compliance-agents]] · [[agent-service-architecture]] — HITL trong kiến trúc production thực tế

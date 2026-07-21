@@ -7,7 +7,8 @@ sources:
   - "[[raw/ai-agents-production/02_Lessons_Learned_Harness_Engineering_VN]]"
   - "[[raw/ai-agents-production/agent-observability-guide-braintrust]]"
   - "[[raw/ai-agents-production/state-of-agent-engineering-langchain]]"
-tags: [ai-agents, production, harness, observability, tracing, opentelemetry, spans, evaluation]
+  - "[[raw/ai-agents-production/ade-prf-agent-reliability-prediction]]"
+tags: [ai-agents, production, harness, observability, tracing, opentelemetry, spans, evaluation, prediction]
 ---
 
 # Agent Observability
@@ -72,7 +73,12 @@ Và quan trọng nhất, trace không chỉ để debug: trace **fail online sco
 
 Khảo sát [[state-of-agent-engineering-langchain|State of Agent Engineering]] (LangChain, n=1.340) cho thấy observability không còn là "nice-to-have": **89%** tổ chức đã triển khai; với production agent lên **94%**, trong đó **71,5%** có full tracing và **62%** giữ trace chi tiết ở mức step + tool call. Nói cách khác, step-level trace mô tả ở trên chính là mức tối thiểu mà đa số team production đã đạt.
 
+## Từ reactive sang predictive (leading indicators)
+
+Observability truyền thống là **reactive**: trace giúp debug *sau* khi lỗi xảy ra. [[ade-prf-agent-reliability-prediction|ADE-PRF]] (arXiv 2607.07689) đề xuất lớp **predictive**: gộp **20 tín hiệu** observability (latency variance, token consumption, hallucination frequency, context window saturation, agent-to-agent delay…) thành một chỉ số **Trust Margin (0–100)** rồi dùng ensemble LSTM+XGBoost **dự đoán health 8 giờ tới**. Mục tiêu là bắt **"false prosperity"** — degradation bị che bởi metric bề mặt bình thường (đúng thứ APM bỏ sót đã nói ở trên). Với hệ multi-agent chạy dài, đây là bước tiến từ "alert khi đã hỏng" sang "cảnh báo trước khi hỏng".
+
 ## Xem thêm
+- [[ade-prf-agent-reliability-prediction]] · 📖 [[articles/ade-prf-agent-reliability-prediction]] — Trust Margin + dự đoán reliability 8h
 - [[state-of-agent-engineering-langchain]] · 📖 [[articles/state-of-agent-engineering-langchain]] — 89%/94%/71,5% adoption observability
 - [[agent-observability-guide-braintrust]] · 📖 [[articles/agent-observability-guide-braintrust]] — 4 loại span, APM vs agent-observability, code LangGraph+Mastra
 - [[braintrust]] — platform trace-to-eval

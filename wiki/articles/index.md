@@ -13,6 +13,12 @@ Mỗi bài đều liên kết hai chiều: từ đây có `📝 Bản tóm tắt
 
 ## Danh sách bài viết (mới nhất lên đầu)
 
+- [[articles/ade-prf-agent-reliability-prediction|ADE-PRF: Dự Đoán Reliability Cho Hệ LLM Multi-Agent Chạy Dài]]
+  — Nguồn: arXiv 2607.07689 (Dexing Liu) | 08/07/2026 | ~14 phút *(backfill)*
+
+- [[articles/anthropic-2026-state-of-ai-agents|The 2026 State of AI Agents Report — Anthropic]]
+  — Nguồn: Anthropic (hợp tác Material) | 2026 | ~15 phút *(backfill)*
+
 - [[articles/stripe-financial-compliance-agents|Production-Grade AI Agents cho Financial Compliance — Case Study Stripe]]
   — Nguồn: AWS Machine Learning Blog (AWS + Stripe) | 26/06/2026 | ~12 phút
 

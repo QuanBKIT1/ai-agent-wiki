@@ -55,6 +55,8 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 - Braintrust — Agent Observability: The Complete Guide for 2026 (2026-06-21, *backfill*) → [[summaries/agent-observability-guide-braintrust]]
 - AgileSoftLabs — CrewAI in Production 2026: Real Lessons (2026-06-15, *backfill*) → [[summaries/crewai-production-lessons]]
 - LangChain — State of Agent Engineering (2026-06-12, *backfill*) → [[summaries/state-of-agent-engineering-langchain]]
+- arXiv — ADE-PRF: Predictive Reliability Framework (2026-07-08, *backfill*) → [[summaries/ade-prf-agent-reliability-prediction]]
+- Anthropic — The 2026 State of AI Agents Report (2026, *backfill*) → [[summaries/anthropic-2026-state-of-ai-agents]]
 
 ### Concepts
 - [[concepts/ai-agent-types]]
@@ -92,6 +94,8 @@ All pages require YAML frontmatter: `title`, `type`, `created`, `updated`, `sour
 - [[summaries/agent-observability-guide-braintrust]] (backfill)
 - [[summaries/crewai-production-lessons]] (backfill)
 - [[summaries/state-of-agent-engineering-langchain]] (backfill)
+- [[summaries/ade-prf-agent-reliability-prediction]] (backfill)
+- [[summaries/anthropic-2026-state-of-ai-agents]] (backfill)
 
 ## Open research questions
 

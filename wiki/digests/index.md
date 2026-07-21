@@ -10,6 +10,7 @@ tags: [digest, index, weekly-crawl]
 
 > Tổng hợp các đợt crawl tự động hằng tuần (skill `crawl-next`) — bài về triển khai AI Agent trên production, xuất bản trong 7 ngày gần đây. Sắp xếp thời gian giảm dần.
 
+- [[digests/2026-07-21-backfill-digest|2026-07-21 (backfill)]] — 2 bài backfill: ADE-PRF predictive reliability (arXiv) + Anthropic 2026 State of AI Agents.
 - [[digests/2026-07-21-digest|2026-07-21]] — không có bài mới trong cửa sổ 7 ngày (backlog: governance radar, SSRN industry case study).
 - [[digests/2026-07-03-digest|2026-07-03]] — không có bài mới trong cửa sổ 7 ngày (backlog: InfoQ Grab multi-agent case study).
 - [[digests/2026-07-02-backfill-digest|2026-07-02 (backfill)]] — 1 bài backfill: LangChain "State of Agent Engineering" (khảo sát 1.340 người).

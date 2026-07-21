@@ -9,6 +9,8 @@
 
 Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của các bài crawl (khác với tóm tắt ngắn ở Summaries). Xem tất cả: [[articles/index|📖 Bài viết (Tiếng Việt)]].
 
+- [[articles/ade-prf-agent-reliability-prediction]] — Predictive reliability cho multi-agent (arXiv, 08/07/2026, *backfill*)
+- [[articles/anthropic-2026-state-of-ai-agents]] — 2026 State of AI Agents, khảo sát 500+ leaders (Anthropic, *backfill*)
 - [[articles/stripe-financial-compliance-agents]] — Case study Stripe (AWS, 26/06/2026)
 - [[articles/agent-observability-guide-braintrust]] — Agent observability guide (Braintrust, 21/06/2026, *backfill*)
 - [[articles/state-of-agent-engineering-langchain]] — State of Agent Engineering, khảo sát 1.340 người (LangChain, 12/06/2026, *backfill*)
@@ -88,6 +90,8 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 - 2026-06-15 — [[summaries/crewai-production-lessons]] — CrewAI production: narrow agents, max_iter, $/run, sequential>hierarchical, Pydantic *(backfill)*
 - 2026-06-21 — [[summaries/agent-observability-guide-braintrust]] — Braintrust: 4 loại span, APM vs agent-obs, trace→eval→CI gate *(backfill)*
 - 2026-06-26 — [[summaries/stripe-financial-compliance-agents]] — Stripe/AWS: Agent Service microservice, LLM Proxy, DAG, prompt caching 60%, HITL compliance
+- 2026-07-08 — [[summaries/ade-prf-agent-reliability-prediction]] — ADE-PRF: Trust Margin + dự đoán reliability 8h cho long-horizon multi-agent *(backfill)*
+- 2026 — [[summaries/anthropic-2026-state-of-ai-agents]] — Anthropic: khảo sát 500+ leaders; 57% multi-stage, 86% coding agent production, 80% ROI *(backfill)*
 
 ## Digests
 - [[digests/index|Weekly Crawl Digests]] — tổng hợp crawl hằng tuần các bài AI-agent-in-production mới nhất
@@ -97,6 +101,7 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
     - [[digests/2026-07-02-backfill-digest|2026-07-02 (backfill)]] — 1 bài backfill: LangChain State of Agent Engineering (survey)
     - [[digests/2026-07-03-digest|2026-07-03]] — không có bài mới trong cửa sổ 7 ngày
     - [[digests/2026-07-21-digest|2026-07-21]] — không có bài mới trong cửa sổ 7 ngày
+    - [[digests/2026-07-21-backfill-digest|2026-07-21 (backfill)]] — 2 bài backfill: ADE-PRF predictive reliability + Anthropic 2026 State of AI Agents
 
 ## Open Questions
 
