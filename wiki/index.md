@@ -96,6 +96,7 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
     - [[digests/2026-07-02-digest|2026-07-02]] — không có bài mới trong cửa sổ 7 ngày
     - [[digests/2026-07-02-backfill-digest|2026-07-02 (backfill)]] — 1 bài backfill: LangChain State of Agent Engineering (survey)
     - [[digests/2026-07-03-digest|2026-07-03]] — không có bài mới trong cửa sổ 7 ngày
+    - [[digests/2026-07-21-digest|2026-07-21]] — không có bài mới trong cửa sổ 7 ngày
 
 ## Open Questions
 
