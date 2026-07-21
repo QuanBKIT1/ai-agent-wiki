@@ -69,12 +69,7 @@ Báo cáo 47Billion nói *cần gì* để reliable; [[harness-engineering|Harne
 
 Xem [[harness-checklist]] cho thứ tự ưu tiên build.
 
-## Containment ở tầng hạ tầng (production)
-
-Guardrail ở tầng prompt là chưa đủ khi agent thực thi hành động tự chủ. [[grab-palana-secure-agent-platform|Palana của Grab]] cho thấy mảng còn thiếu: **containment ở tầng hạ tầng** — cô lập namespace/RBAC/storage theo agent, **proxy-only secrets** (agent không cầm credential thật, chống prompt-injection lấy cắp), egress qua Envoy có policy, và control plane tách ngoài agent process. Đây là lớp phòng thủ khi con người không kịp can thiệp (bổ trợ [[human-in-the-loop|HITL]]).
-
 ## Xem thêm
-- [[grab-palana-secure-agent-platform]] — containment agent tầng hạ tầng
 - [[human-in-the-loop]] · [[agent-cost-management]] · [[autonomy-spectrum]]
 - [[agent-deployment-roadmap]] — progressive rollout theo phase
 - [[harness-engineering]] · [[harness-checklist]] — reliability ở tầng harness

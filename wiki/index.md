@@ -13,8 +13,6 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 - [[articles/agent-observability-guide-braintrust]] — Agent observability guide (Braintrust, 21/06/2026, *backfill*)
 - [[articles/state-of-agent-engineering-langchain]] — State of Agent Engineering, khảo sát 1.340 người (LangChain, 12/06/2026, *backfill*)
 - [[articles/crewai-production-lessons]] — CrewAI production lessons (AgileSoftLabs, 15/06/2026, *backfill*)
-- [[articles/grab-palana-secure-agent-platform]] — Palana: nền tảng chạy agent an toàn (Grab, 19/06/2026, *backfill*)
-- [[articles/grab-multi-agent-engineering-support]] — Multi-agent engineering support "huddle" (Grab, 19/03/2026, *backfill*)
 - [[articles/lessons-learned-harness-engineering]] — Bài học harness engineering (10/03/2026)
 - [[articles/deploying-ai-agents-mlm]] — Kiến trúc & hạ tầng deploy (03/03/2026)
 - [[articles/ai-agents-production-47billion]] — Tổng quan frameworks & protocols (24/02/2026)
@@ -66,7 +64,6 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 - [[entities/langgraph]] — workflow engine dạng graph của LangChain
 
 ### Organizations
-- [[entities/grab]] — super-app SE Asia; 2 case study production: multi-agent support + Palana secure platform
 - [[entities/47billion]] — tác giả báo cáo AI Agents in Production 2026
 - [[entities/harness-engineering-blog|Harness Engineering]] — blog production lessons (harness layer)
 - [[entities/anthropic]] — phát hành MCP
@@ -87,10 +84,8 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
 - 2026-02-24 — [[summaries/ai-agents-production-47billion]] — báo cáo 47Billion: frameworks, protocols, production lessons
 - 2026-03-03 — [[summaries/deploying-ai-agents-mlm]] — MachineLearningMastery: execution models, 5-layer infra stack, deployment topologies, roadmap
 - 2026-03-10 — [[summaries/lessons-learned-harness-engineering]] — Harness Engineering: failure ở tầng harness, verify/cost/observability/eval
-- 2026-03-19 — [[summaries/grab-multi-agent-engineering-support]] — Grab: 5-agent "huddle" cho engineering support (FastAPI+LangGraph), specialists over generalists *(backfill)*
 - 2026-06-12 — [[summaries/state-of-agent-engineering-langchain]] — LangChain: khảo sát 1.340 người; 57,3% production, 89% observability, 75%+ multi-model *(backfill)*
 - 2026-06-15 — [[summaries/crewai-production-lessons]] — CrewAI production: narrow agents, max_iter, $/run, sequential>hierarchical, Pydantic *(backfill)*
-- 2026-06-19 — [[summaries/grab-palana-secure-agent-platform]] — Grab Palana: substrate K8s-native chạy agent an toàn (proxy-only secrets, isolation) *(backfill)*
 - 2026-06-21 — [[summaries/agent-observability-guide-braintrust]] — Braintrust: 4 loại span, APM vs agent-obs, trace→eval→CI gate *(backfill)*
 - 2026-06-26 — [[summaries/stripe-financial-compliance-agents]] — Stripe/AWS: Agent Service microservice, LLM Proxy, DAG, prompt caching 60%, HITL compliance
 
@@ -101,7 +96,6 @@ Bản viết lại **đầy đủ, dễ đọc** bằng tiếng Việt của cá
     - [[digests/2026-07-02-digest|2026-07-02]] — không có bài mới trong cửa sổ 7 ngày
     - [[digests/2026-07-02-backfill-digest|2026-07-02 (backfill)]] — 1 bài backfill: LangChain State of Agent Engineering (survey)
     - [[digests/2026-07-03-digest|2026-07-03]] — không có bài mới trong cửa sổ 7 ngày
-    - [[digests/2026-07-03-backfill-digest|2026-07-03 (backfill)]] — 2 bài backfill từ Grab: multi-agent support + Palana
 
 ## Open Questions
 

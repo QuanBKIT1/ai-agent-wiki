@@ -5,7 +5,6 @@ created: 2026-07-01
 updated: 2026-07-01
 sources:
   - "[[raw/ai-agents-production/03_Deploying_AI_Agents_MLM_VN]]"
-  - "[[raw/ai-agents-production/grab-palana-secure-agent-platform]]"
 tags: [ai-agents, deployment, infrastructure, compute, storage, security, observability]
 ---
 
@@ -65,10 +64,7 @@ Dùng **LangSmith, LangFuse**, hoặc custom — capture dữ liệu agent-speci
 - **Output filtering** bắt thông tin nhạy cảm.
 - Xử lý compliance về data retention và audit trail (xem [[production-reliability|bảo mật & compliance]]).
 
-> **Production example — Palana (Grab)**: khi agent chạy tự chủ ở scale, Security layer cần **containment ở tầng hạ tầng**, không chỉ input/output filter. [[grab-palana-secure-agent-platform|Palana]] cô lập mỗi agent (namespace/RBAC/storage riêng), dùng **proxy-only secrets** (agent chỉ thấy placeholder token), egress qua **Envoy có policy**, và giữ **control plane ngoài agent process** để agent bị compromise không tắt được safeguard.
-
 ## Xem thêm
-- [[grab-palana-secure-agent-platform]] · 📖 [[articles/grab-palana-secure-agent-platform]] — containment agent tầng hạ tầng (Kubernetes-native)
 - [[agent-execution-models]] — model quyết định lựa chọn Compute/Storage
 - [[deployment-topologies]] — topology quyết định nhu cầu Communication
 - [[agent-observability]] — chi tiết Observability layer
